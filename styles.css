@@ -9,10 +9,28 @@ body {
   /* background-color: black; */
   width: 100vw;
   font-family: sans-serif;
+  position: relative;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("assests/images/bg.jpg");
+  filter: blur(20px); /* 👈 this applies the blur */
+  transform: scale(1.1); /* prevents edge blur cut-off */
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(70, 8, 18, 0.6); /* dark overlay */
+  z-index: -2;
 }
 .upper-part {
   height: 100vh;
-  background: var(--bg-color);
+  
   opacity: 100%;
 }
 .upper-part .upper-part_box {
@@ -55,7 +73,7 @@ body {
   background-size: max(1400px, 100vw);
   background-repeat: no-repeat;
   border-radius: 20px;
-  mask-image: linear-gradient(180deg, #fff 71.48%, rgba(255, 255, 255, 0.4) 100%);
+  mask-image: linear-gradient(190deg, #fff 90.48%, rgba(255, 255, 255, 0.4) 100%);
 
   
   
@@ -135,14 +153,13 @@ i{
   font-size: 20px; 
 
 }
-.trending-part{
-  background-color: rgb(34, 34, 34);
-  color: white;
-  padding: 20px;
-}
+
+
 .trending-part h2{
-  margin-bottom: 10px;
-}
+   color: white;
+   padding-bottom: 60px;
+   padding-left: 60px;
+  }
 
 .carousel-container{
   position: relative;
@@ -154,7 +171,7 @@ i{
 }
 .carousel{
   display: flex;
-  gap: 1rem;
+  gap: 3rem;
   overflow-x: auto;
   scroll-behavior: smooth;
   padding-bottom: 10px;
@@ -162,7 +179,7 @@ i{
 }
 .card {
   min-width: 200px;
-  height: 300px;
+  height: 290px;
   background: #333;
   border-radius: 10px;
   flex-shrink: 0;
@@ -170,31 +187,53 @@ i{
   background-size: cover;
   background-position: center;
   transition: transform 0.3s ease;
+  overflow: hidden;
 }
 
 .carousel::-webkit-scrollbar {
   display: none; /* hide scrollbar */
 }
-.card:hover{
+.card:hover {
   
-  transform: scale(1.04);
+  transform: scale(1.1);
 }
 .nav-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  align-items: center;
   font-size: 2rem;
   background: rgba(0, 0, 0, 0.5);
   border: none;
   color: white;
   cursor: pointer;
   z-index: 10;
-  padding: 10px;
+  padding: 20px;
   border-radius: 50%;
+
 }
 .left-btn {
-  left: 0;
+  left: -1.4rem;
 }
 .right-btn {
+  right: -1.5rem;
+}
+.fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+ 
+  height: 60px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.fade-left {
+  left: 0;
+  background: linear-gradient(to right, #0a0a0a 20%, transparent);
+}
+
+.fade-right {
   right: 0;
+  background: linear-gradient(to left, #181717 20%, transparent);
 }

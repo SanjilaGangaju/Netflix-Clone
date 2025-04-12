@@ -31,12 +31,14 @@
         </div>
       </div>
     </div>
-    <div class="trending-part"> <h2>Trending Now</h2>
+    <div class="trending-part">
+      
+       <h2>Trending Now</h2>
       <div class="carousel-container">
-        <button class="nav-btn left-btn"></button>
+        <button class="nav-btn left-btn" onclick="scrollCarousel(-1)"><</button>
         <div class="carousel">
           <div class="card"></div>
-          <div class="card"></div>
+          <div class="card" style="background-image: url(assests/images/card2-image.jpg);"></div>
           <div class="card"></div>
           <div class="card"></div>
           <div class="card"></div>
@@ -44,7 +46,9 @@
           <div class="card"></div>
           <div class="card"></div>
         </div>
-        <button class="nav-btn right-btn"></button>
+        <button class="nav-btn right-btn" onclick="scrollCarousel(1)">></button>
+        <div class="fade fade-left"></div>
+        <div class="fade fade-right"></div>
       </div>
     </div>
    
